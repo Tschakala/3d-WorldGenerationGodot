@@ -1,16 +1,14 @@
 using Godot;
-using System;
 
-namespace d_WorldGen
+namespace d_worldgen._3D
 {
-	public partial class WorldGen : Node3D
+	public partial class WorldGen3D : Node3D
 	{
 		[Export] private int _middle;
-		[Export] private int _width = 10000;
-		[Export] private float _heightMulti = 500f;
-		[Export] private int _blockMulti = 50;
-		[Export] private float _frequency = 0.0005f;
-		[Export] private int _seed = new Random().Next();
+		[Export] private int _width = 250;
+		[Export] private float _heightMulti = 30f;
+		[Export] private int _blockMulti = 1;
+		[Export] private float _frequency = 0.01f;
 		[Export] private Color _color = Colors.YellowGreen;
 		public override void _Ready()
 		{
@@ -18,7 +16,6 @@ namespace d_WorldGen
 			SurfaceTool st = new();
 			st.Begin(Mesh.PrimitiveType.Triangles);
 			var noise = new FastNoiseLite();
-			noise.Seed = _seed;
 			noise.Frequency = _frequency;
 
 			for (int x = -(_width / 2) + _middle; x < _width; x = x + _blockMulti)

@@ -1,16 +1,14 @@
 using Godot;
 
-namespace d_worldGen
+namespace d_worldgen._3D
 {
-    public partial class Movement : Camera3D
+    public partial class Movement3D : Camera3D
     {
-        [Export]
-        public float Speed = 500.0f;
+        [Export] public float Speed = 5.0f;
 
-        [Export]
-        public float MouseSensitivity = 0.003f;
+        [Export] public float MouseSensitivity = 0.003f;
 
-        private float pitch = 0.0f;
+        private float _pitch;
 
         public override void _Ready()
         {
@@ -23,10 +21,10 @@ namespace d_worldGen
             {
                 RotateY(-motion.Relative.X * MouseSensitivity);
 
-                pitch -= motion.Relative.Y * MouseSensitivity;
-                pitch = Mathf.Clamp(pitch, -Mathf.Pi / 2, Mathf.Pi / 2);
+                _pitch -= motion.Relative.Y * MouseSensitivity;
+                _pitch = Mathf.Clamp(_pitch, -Mathf.Pi / 2, Mathf.Pi / 2);
 
-                Rotation = new Vector3(pitch, Rotation.Y, 0);
+                Rotation = new Vector3(_pitch, Rotation.Y, 0);
             }
         }
 

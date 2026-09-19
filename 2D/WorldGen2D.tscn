@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ddfs4ry56pnst"]
+
+[ext_resource type="Script" uid="uid://dset5af6git60" path="res://2D/CameraController.cs" id="1_gri8y"]
+[ext_resource type="Script" uid="uid://dwsfavrrxx7u" path="res://2D/WorldGen2D.cs" id="1_kqxhd"]
+[ext_resource type="Texture2D" uid="uid://c2u4yw3mtal16" path="res://2D/black-white-tiles.png" id="2_ympbo"]
+[ext_resource type="Texture2D" uid="uid://cstxse2w6dwgn" path="res://2D/redDot.png" id="4_1rwdg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yx1ju"]
+texture = ExtResource("2_ympbo")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hw6x6"]
+texture = ExtResource("4_1rwdg")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1rwdg"]
+tile_size = Vector2i(1, 1)
+sources/0 = SubResource("TileSetAtlasSource_yx1ju")
+sources/1 = SubResource("TileSetAtlasSource_hw6x6")
+
+[node name="WorldGen2D" type="Node2D" unique_id=688290180 node_paths=PackedStringArray("_world")]
+script = ExtResource("1_kqxhd")
+_world = NodePath("World")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1224624356]
+script = ExtResource("1_gri8y")
+
+[node name="World" type="TileMapLayer" parent="." unique_id=1974391787]
+tile_set = SubResource("TileSet_1rwdg")

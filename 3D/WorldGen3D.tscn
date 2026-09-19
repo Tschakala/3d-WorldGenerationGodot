@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b137dwojfwqvf"]
 
-[ext_resource type="Script" uid="uid://qd43wyh7upu0" path="res://WorldGen.cs" id="1_7u8th"]
-[ext_resource type="Script" uid="uid://cnrgvfr7cfijd" path="res://Movement.cs" id="2_35xrc"]
+[ext_resource type="Script" uid="uid://qd43wyh7upu0" path="res://3D/WorldGen3D.cs" id="1_03jgr"]
+[ext_resource type="Script" uid="uid://cnrgvfr7cfijd" path="res://3D/Movement3D.cs" id="2_6psq1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_35xrc"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -16,7 +16,8 @@ sky = SubResource("Sky_65ft0")
 glow_enabled = true
 
 [node name="Node3D" type="Node3D" unique_id=1557677023]
-script = ExtResource("1_7u8th")
+script = ExtResource("1_03jgr")
+_color = Color(1.540184e-06, 0.81740564, 0.8939734, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=609698905]
 environment = SubResource("Environment_076me")
@@ -25,7 +26,5 @@ environment = SubResource("Environment_076me")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=457752963]
-transform = Transform3D(0.84053385, -0.16797686, 0.5150599, 0, 0.95071757, 0.31005824, -0.5417591, -0.26061442, 0.7991103, 2.1766474, 1.5468624, 2.5974207)
-fov = 110.37465
-script = ExtResource("2_35xrc")
+[node name="Camera3D" type="Camera3D" parent="." unique_id=86779510]
+script = ExtResource("2_6psq1")
